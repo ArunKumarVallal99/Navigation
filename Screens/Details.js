@@ -2,17 +2,10 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
 function Details(props) {
-    const { route } = props;
-    const { item } = route.params;
-    const { name, home, species } = item;
+
     return (
-      <View style={styles.container}>
+        <View style={styles.container}>
         <Text style={styles.text}>Detail Screen</Text>
-        <View style={styles.card}>
-          <Text style={styles.cardText}>Name: {name}</Text>
-          <Text style={styles.cardText}>Home Planet: {home}</Text>
-          <Text style={styles.cardText}>Species: {species}</Text>
-        </View>
       </View>
     );
   }
