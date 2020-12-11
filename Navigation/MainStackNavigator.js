@@ -16,7 +16,7 @@ function MainStackNavigator() {
           options={{ title: 'Home Screen' }}
         />
         <Stack.Screen
-          name="Detail"
+          name="Details"
           component={Details}
           options={{ title: 'Detail Screen' }}
         />

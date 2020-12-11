@@ -2,13 +2,18 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 function Home(props) {
+    const character = {
+        name: 'Arun Kumar ',
+        home: 'Mayiladuthurai',
+        species: 'human'
+      };
   const { navigation } = props;
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Home Screen</Text>
       <TouchableOpacity
         style={styles.buttonContainer}
-        onPress={() => navigation.navigate('Detail')}
+        onPress={() => navigation.navigate('Details', { item: character })}
       >
         <Text style={styles.buttonText}>Go to Detail Screen</Text>
       </TouchableOpacity>
