@@ -1,8 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import {createDrawerNavigator}from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import  Profile from "./Profile";
+import   Details from "./Details";
 
 function Home(props) {
-   
   const { navigation } = props;
   return (
     <View style={styles.container}>
