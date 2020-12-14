@@ -7,12 +7,12 @@ function Home(props) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Home Screen</Text>
-      {/* <TouchableOpacity
+      <TouchableOpacity
         style={styles.buttonContainer}
-        onPress={() => navigation.navigate('Details', { item: character })}
+        onPress={() => navigation.navigate('Details')}
       >
         <Text style={styles.buttonText}>Go to Detail Screen</Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity>
     </View>
   );
 }

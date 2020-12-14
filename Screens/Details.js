@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 
-function Details(props) {
+function Details() {
 
     return (
         <View style={styles.container}>
