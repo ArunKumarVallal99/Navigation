@@ -1,20 +1,27 @@
-import * as React from 'react';
-import { View, Text } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import HomeScreen from './Screens/Home'
+import React, { Component } from 'react';
+import { createStore } from 'redux';
+import Counters from './src/Counter';
+import {Provider} from 'react-redux';
 
-
-const Stack = createStackNavigator();
-
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+const initialState = {
+  counter: 0
 }
-
+const reducer = (state=initialState,action) => {
+  switch(action.type)
+  {
+    case 'INCREASE_COUNTER':
+      return{counter:state.counter+1}
+  }
+  return state
+}
+const store = createStore(reducer)
+class App extends Component {
+  render() {
+    return(
+        <Provider store= { store}>    
+        <Counters />
+        </Provider> 
+    );
+  }
+}
 export default App;
