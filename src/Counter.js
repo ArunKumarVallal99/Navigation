@@ -1,34 +1,26 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet ,TouchableOpacity } from 'react-native';
-import {connect} from 'react-redux';
+import {  useDispatch,useSelector} from "react-redux";
+import { addition,subtraction } from "./store/action";
 
-class Counters extends Component {
-  render() {
+const Counters=(props)=> {
+ const data=useSelector((state)=>state);
+ const{counter,name}=data;
+ const dispatch=useDispatch();
     return(
       <View style={styles.container}>
         <View style={styles.textView}>
-          <TouchableOpacity onPress={this.props.increaseCounter}>
+          <TouchableOpacity onPress={()=>dispatch(addition())}>
             <Text style={styles.touchableText}>ID</Text>
           </TouchableOpacity>
-          <Text style={styles.number}>{this.props.counter}</Text>
+          <Text style={styles.number}>{counter}</Text>
+          <Text style={styles.number}>{name}</Text>
         </View>
       </View>
     );
-  }
-}
 
-function mapStateToProps(state) {
-    return {
-        counter: state.counter,
-    }
-}
+};
 
-function mapDispatchToProps(dispatch) {
-    return {
-        increaseCounter : () => dispatch({type:'INCREASE_COUNTER'}),
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Counters);
 
 const styles = StyleSheet.create({
   container:{
@@ -47,3 +39,4 @@ const styles = StyleSheet.create({
       paddingLeft:10,
   },
 });
+export default Counters;
