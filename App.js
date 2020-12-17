@@ -1,78 +1,50 @@
-import React, { useState,useEffect} from 'react';
-import{Button,StyleSheet,TextInput,View,Text} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React from 'react';
+import axios from 'axios';
+import {Text,FlatList,View, StyleSheet,ActivityIndicator} from 'react-native'
 
- const STORAGE_KEY = '@save_age'
- const App =()=> {
- 
-    const [age, setAge] = useState('')
-    const saveData = async () => {
-        try {
-          await AsyncStorage.setItem(STORAGE_KEY, age)
-          alert('Data successfully saved')
-        } catch (e) {
-          alert('Failed to save the data to the storage')
-        }
-      }
-    const readData = async () => {
-        try {
-          const userAge = await AsyncStorage.getItem(STORAGE_KEY)
-      
-          if (userAge !== null) {
-            setAge(userAge)
-          }
-        } catch (e) {
-          alert('Failed to fetch the data from storage')
-        }
+export default class Requests extends React.Component {
+    constructor()
+    {
+      super ()
+      this.state = {
+        nameList:[],
+        isLoading:true,      }
     }
-    const clearStorage = async () => {
-        try {
-          await AsyncStorage.clear()
-          alert('Storage successfully cleared!')
-        } catch (e) {
-          alert('Failed to clear the async storage.')
-        }
+
+    async componentDidMount(){
+        const  response = await axios.get('https://reactnative.dev/movies.json');
+        const datas = await response.data.movies;
+        this.setState({nameList:datas})
+        console.log(this.state.nameList)
+        console.log(this.state.isLoading)
+        console.log(this.state.nameList.length)
+        
     }
-    const onChangeText = userAge => setAge(userAge)
 
-    const onSubmitEditing = () => {
-        if (!age) return 
-        saveData(age)
-       
-        setAge('')
+    render() {
+        const { nameList, isLoading } = this.state;
+        return (
+           
+            <View styles={styles.container}>
+            {isLoading?(
+                <FlatList
+                data={nameList}
+                keyExtractor={({ id }) => id}
+                renderItem={({ item }) => (
+                    
+                    <Text>id: {item.id},   Name :  {item.title},    ReleaseYear:  {item.releaseYear}</Text>
+                )}
+                />
+                ) :<Text>NO DATA</Text>
+            }
+            </View>
+     
+        );
     }
-    useEffect(() => {
-    readData()
-    }, [])
-    return(
-      <View style={styles.container}>
-          <TextInput style={styles.textInput} value={age}
-          placeholder='Enter your age' onChangeText={onChangeText}
-          onSubmitEditing={onSubmitEditing}/>
-          <Button title='Clear' onPress={clearStorage}/>
-          <Text style={styles.text}>Your age is {age}</Text>
-      </View>
-    );
-
-};
-
-const styles= StyleSheet.create({
+}
+const styles=StyleSheet.create({
     container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center',
         padding:20,
+        flex: 1,
     },
-    textInput:{
-        borderColor:'grey',
-        borderWidth:1,
-        width:150,
-        marginBottom:30,
-    },
-    text: {
-        fontSize: 24,
-        padding: 10,
-        backgroundColor: '#dcdcdc'
-    },
-})
-export default App;
+});
