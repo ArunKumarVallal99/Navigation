@@ -56,7 +56,6 @@ class App extends Component {
         
     }    
       catch(error) {
-        // handle error
         alert(error.message);
       };
       //console.log(data);
@@ -92,7 +91,7 @@ render(){
   <ScrollView>
     <View style={styles.container}>
       <Text style={{fontSize: 30, textAlign: 'center'}}>
-        Example of Axios Networking in React Native
+     Axios 
       </Text>
       {/*Running GET Request*/}
       <TouchableOpacity
