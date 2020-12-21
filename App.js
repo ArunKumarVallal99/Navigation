@@ -76,12 +76,12 @@ class App extends Component {
         axios
           .get('https://jsonplaceholder.typicode.com/posts/2')
           .then(function (response) {
-            alert('Post 2 : ' + JSON.stringify(response.data));
+            //alert('Post 2 : ' + JSON.stringify(response.data));
           }),
       ])
       .then(
         axios.spread(function (acct, perms) {
-          console.warn('Both requests are now complete');
+        alert('Both requests are now complete');
         }),
       );
     //  this.setState({multi1:data});
