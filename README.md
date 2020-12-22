@@ -1,15 +1,15 @@
 # Screen Shots
  
-<img src="https://github.com/ArunKumarVallal99/Navigation/blob/Axios-All/Screenshots/Screenshot_1608554625.png" height='300'>
+<img src="https://github.com/ArunKumarVallal99/Navigation/blob/CRUD/Screenshots/Screenshot_1608643430.png" height='300'>
 
-## Async get Method 
+## ADD 
 
-<img src="https://github.com/ArunKumarVallal99/Navigation/blob/Axios-All/Screenshots/Screenshot_1608554631.png" height='300'>
+<img src="https://github.com/ArunKumarVallal99/Navigation/blob/CRUD/Screenshots/Screenshot_1608643476.png" height='300'>
 
-## Asyn Post Method  
+## Multiple ADD 
 
-<img src="https://github.com/ArunKumarVallal99/Navigation/blob/Axios-All/Screenshots/Screenshot_1608554635.png" height='300'>
+<img src="https://github.com/ArunKumarVallal99/Navigation/blob/CRUD/Screenshots/Screenshot_1608643516.png" height='300'>
 
-## Multiple Get method
+## After Delete 
 
-<img src="https://github.com/ArunKumarVallal99/Navigation/blob/Axios-All/Screenshots/Screenshot_1608556632.png" height='300'>
+<img src="https://github.com/ArunKumarVallal99/Navigation/blob/CRUD/Screenshots/Screenshot_1608643774.png" height='300'>
