@@ -19,8 +19,9 @@ const TodoApp = ({ todo_list, addTodo, deleteTodo }) => {
     setTask('')
   }
 
-  const handleDeleteTodo = (id) => {
-    console.log(id)
+  const handleDeleteTodo = (id,task) => {
+    //console.log(id)
+    alert('Deleted task is ' + task)
     deleteTodo(id)
   }
 
@@ -35,7 +36,7 @@ const TodoApp = ({ todo_list, addTodo, deleteTodo }) => {
 
           <View style={styles.taskTextContainer}>
               <Text style={styles.taskText}>{item.task}</Text>
-              <TouchableOpacity onPress={() => handleDeleteTodo(item.id)}>
+              <TouchableOpacity onPress={()=>handleDeleteTodo(item.id,item.task)}>
                 <Text style={styles.deleteText}>DELETE</Text>
               </TouchableOpacity>
           </View>
@@ -49,7 +50,7 @@ const TodoApp = ({ todo_list, addTodo, deleteTodo }) => {
   return(
     <View style={styles.container}>
       <TextInput
-      
+      underlineColorAndroid='blue'
       placeholder='Example'
       value={task}
       label='TASk'
