@@ -1,4 +1,4 @@
-import { ADD_TODO,DELETE_TODO } from "./actionTypes";
+import { ADD_TODO,DELETE_TODO,EDIT_TODO } from "./actionTypes";
 let nextTodoId=0;
 
 export const addTodo = task =>({
@@ -15,3 +15,9 @@ export const deleteTodo = id =>({
         id
     }
     });
+export const editTodo = (id,task)=>({
+    type: EDIT_TODO,
+    id,
+    task
+    
+});    
